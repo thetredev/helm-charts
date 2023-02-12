@@ -23,13 +23,15 @@ Get the latest [Helm release](https://github.com/helm/helm#install).
 Once you have Helm installed, add the repo as follows:
 
 ```console
-TODO
+helm repo add steamcmd-helm https://thetredev.github.io/steamcmd-helm/
+helm repo update
 ```
 
 ## Search and install charts
 
 ```console
-TODO
+helm search repo steamcmd-helm
+helm install my-release steamcmd-helm/steamcmd
 ```
 
 ## Configuration
@@ -59,4 +61,4 @@ The following table lists the configurable parameters of the helm chart and thei
 
 ## Contributing
 
-TODO
+You're always welcome to create or help fix an [issue](https://github.com/thetredev/steamcmd-helm/issues).
