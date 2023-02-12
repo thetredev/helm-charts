@@ -1,0 +1,58 @@
+deployment:
+  # Used to differentiate game servers from each other to make your life easier
+  containerName: counter-strike-source
+
+  # Define the image pull policy
+  pullPolicy: IfNotPresent
+
+  # Choose from:
+  #  hlds based:
+  #   cs
+  #   czero
+  #   dmc
+  #   dod
+  #   hlmp
+  #   op4
+  #   tfc
+  #  srcds based:
+  #   bms
+  #   csgo
+  #   css
+  #   dods
+  #   gm
+  #   hl2mp
+  #   l4d
+  #   l4d2
+  game: css
+
+network:
+  # Currently only LoadBalancer is supported
+  ip: "192.168.178.20"
+  ports:
+    # Server and RCON ports will always be the same, both in the container as well as exposed
+    # this saves unnecessary trouble with the game server networking
+    #  default: 27015
+    server: 27015
+    rcon:
+      # default: false
+      enabled: true
+    # SSH port will always be 22 in the container, the exposed port can be defined here
+    ssh:
+      # default: false
+      enabled: true
+      # default: 22
+      port: 22
+      # SSH secret name to use, has to contain key "authorized_keys"
+      # secretName: ssh-access
+
+# Currently only local storage is supported for both server files and SSH host keys
+storage: "5Gi"
+
+environment:
+  timezone: "Etc/UTC"
+
+  # Specify user UID/GID if you have have to
+  #  default: 5000 for both
+  # steamcmd:
+    # uid: 5000
+    # gid: 5000

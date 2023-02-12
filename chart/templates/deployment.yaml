@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Namespace }}-{{ .Values.deployment.containerName }}"
+  labels:
+    com.github.thetredev.steamcmd.service: "{{ .Release.Namespace }}-{{ .Values.deployment.containerName }}"
+spec:
+  replicas: {{ default 1 .Values.deployment.replicas }}
+  revisionHistoryLimit: {{ default 1 .Values.deployment.revisionHistoryLimit }}
+  selector:
+    matchLabels:
+      com.github.thetredev.steamcmd.service: "{{ .Release.Namespace }}-{{ .Values.deployment.containerName }}"
+  template:
+    metadata:
+      labels:
+        com.github.thetredev.steamcmd.service: "{{ .Release.Namespace }}-{{ .Values.deployment.containerName }}"
+    spec:
+      containers:
+        - name: "{{ .Values.deployment.containerName }}"
+          image: "ghcr.io/thetredev/steamcmd:{{ .Values.deployment.game }}-20221213"
+          imagePullPolicy: "{{ default "IfNotPresent" .Values.deployment.pullPolicy }}"
+          resources:
+          {{- if .Values.resources }}
+            requests:
+              memory: {{ if .Values.resources.requests -}} {{ .default "512Mi" .Values.resources.requests.memory | quote }} {{- else -}} "512Mi" {{- end }}
+              cpu: {{ if .Values.resources.requests -}} {{ .default "200m" .Values.resources.requests.cpu | quote }} {{- else -}} "200m" {{- end }}
+            limits:
+              memory: {{ if .Values.resources.limits -}} {{ default "2048Mi" .Values.resources.limits.memory | quote }} {{- else -}} "2048Mi" {{- end }}
+              cpu: {{ if .Values.resources.limits -}} {{ default "500m" .Values.resources.limits.cpu | quote }} {{- else -}} "500m" {{- end }}
+          {{- else }}
+            requests:
+              memory: 512Mi
+              cpu: 200m
+            limits:
+              memory: 2048Mi
+              cpu: 500m
+          {{- end }}
+          env:
+            - name: TIME_ZONE
+              value: "{{ default "Etc/UTC" .Values.environment.timezone }}"
+            - name: STEAMCMD_UID
+              value: {{ if .Values.environment.steamcmd -}} {{ default "5000" .Values.environment.steamcmd.uid | quote }} {{- else -}} "5000" {{- end }}
+            - name: STEAMCMD_GID
+              value: {{ if .Values.environment.steamcmd -}} {{ default "5000" .Values.environment.steamcmd.gid | quote }} {{- else -}} "5000" {{- end }}
+            - name: STEAMCMD_SERVER_PORT
+              value: "{{ .Values.network.ports.server }}"
+            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            # SSH authorized keys
+            - name: STEAMCMD_SSH_SERVER_ENABLE
+              value: "1"
+            - name: STEAMCMD_SSH_AUTHORIZED_KEYS
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.network.ports.ssh.secretName }}"
+                  key: authorized_keys
+            {{- end }}
+          ports:
+            # game server port
+            - name: server
+              containerPort: {{ if .Values.network.ports -}} {{ default 27015 .Values.network.ports.server }} {{- else -}} 27015 {{- end }}
+              protocol: UDP
+            {{- if (default false .Values.network.ports.rcon.enabled) }}
+            # RCON port
+            - name: rcon
+              containerPort: {{ default 27015 .Values.network.ports.server }}
+              protocol: TCP
+            {{- end }}
+            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            # SSH port
+            - name: ssh
+              containerPort: 22
+              protocol: TCP
+            {{- end }}
+          volumeMounts:
+            # game server volume
+            - name: server
+              mountPath: /var/lib/steamcmd
+            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            # SSH host keys volume
+            - name: ssh
+              mountPath: /opt/ssh
+            {{- end }}
+          securityContext:
+            allowPrivilegeEscalation: false
+      restartPolicy: Always
+      volumes:
+        # game server volume
+        - name: server
+          persistentVolumeClaim:
+            claimName: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-server
+        {{- if (default false .Values.network.ports.ssh.enabled) }}
+        # SSH host keys volume
+        - name: ssh
+          persistentVolumeClaim:
+            claimName: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-ssh
+        {{- end }}

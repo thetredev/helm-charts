@@ -1,0 +1,13 @@
+{{- if (default false .Values.network.ports.ssh.enabled) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-ssh
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 256Ki
+{{- end }}
