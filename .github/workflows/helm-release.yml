@@ -32,12 +32,12 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Prepare gh-pages branch
+      - name: Create gh-pages branch if it doesn't exist
+        continue-on-error: true
         run: |
-          git branch gh-pages || true
-          git checkout gh-pages
+          git checkout -b gh-pages || exit 1
           git rebase main
-          git push origin gh-pages -f
+          git push origin gh-pages
 
           git checkout main
 
