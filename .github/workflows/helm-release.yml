@@ -20,6 +20,8 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v3
+        with:
+          version: v3.10.0
 
       - name: Helm lint
         run: helm lint -f charts/steamcmd/values.yaml charts/steamcmd
@@ -30,9 +32,16 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Prepare gh-pages branch
+        run: |
+          git branch gh-pages || true
+          git checkout gh-pages
+          git rebase main
+          git push origin gh-pages -f
+
+          git checkout main
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
-        with:
-          charts_dir: chart
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
