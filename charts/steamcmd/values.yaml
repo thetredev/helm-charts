@@ -1,3 +1,5 @@
+# Default values for the SteamCMD chart.
+
 deployment:
   # Used to differentiate game servers from each other to make your life easier
   containerName: counter-strike-source
