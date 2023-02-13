@@ -1,5 +1,9 @@
 # Changelog
 
+## steamcmd-0.0.3
+
+Keep `README.md` in the chart archive.
+
 ## steamcmd-0.0.2
 
 Add default `values.yaml`.

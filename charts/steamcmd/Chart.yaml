@@ -1,5 +1,5 @@
 apiVersion: v2
 name: steamcmd
-version: 0.0.2
+version: 0.0.3
 appVersion: "20221213"
 description: Sane SteamCMD Docker images
