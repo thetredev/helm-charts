@@ -34,7 +34,7 @@ helm search repo thetredev
 helm install my-release thetredev/<chart>
 ```
 
-You can find specific charts inside the [charts](charts) directory.
+You can find specific charts inside the [charts](https://github.com/thetredev/helm-charts/tree/main/charts) directory.
 
 ## Contributing
 
