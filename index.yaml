@@ -3,6 +3,15 @@ entries:
   steamcmd:
   - apiVersion: v2
     appVersion: "20221213"
+    created: "2023-02-13T19:08:36.468525409Z"
+    description: Sane SteamCMD Docker images
+    digest: 05f24ebd9dd37b9c16d7e82969744ac492566bf3da6babe0043cc5a6e98777bf
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.3/steamcmd-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: "20221213"
     created: "2023-02-13T18:01:06.089655206Z"
     description: Sane SteamCMD Docker images
     digest: eadc1f9220b5f9e3d944a4e1916b03513fba6539e753568f32c43d9bb60340de
@@ -19,4 +28,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-02-13T18:01:06.089666407Z"
+generated: "2023-02-13T19:08:36.468545909Z"
