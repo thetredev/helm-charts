@@ -1,5 +1,9 @@
 # Changelog
 
+## steamcmd-0-0.4
+
+Add Artifact Hub annotations
+
 ## steamcmd-0.0.3
 
 Keep `README.md` in the chart archive.
