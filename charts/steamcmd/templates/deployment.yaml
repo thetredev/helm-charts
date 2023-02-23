@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deployment.containerName }}"
-          image: "ghcr.io/thetredev/steamcmd:{{ .Values.deployment.game }}-20221213"
+          image: "ghcr.io/thetredev/steamcmd:{{ .Values.deployment.game }}-{{ .Chart.AppVersion }}"
           imagePullPolicy: "{{ default "IfNotPresent" .Values.deployment.pullPolicy }}"
           resources:
           {{- if .Values.resources }}
