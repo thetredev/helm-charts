@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deployment.containerName }}"
-          image: "ghcr.io/thetredev/steamcmd:{{ .Values.deployment.game }}-{{ .Chart.AppVersion }}"
+          image: "ghcr.io/thetredev/steamcmd:{{ include "steamcmd.image" . }}-{{ .Chart.AppVersion }}"
           imagePullPolicy: "{{ default "IfNotPresent" .Values.deployment.pullPolicy }}"
           resources:
           {{ if .Values.resources }}
@@ -44,6 +44,20 @@ spec:
               value: {{ if .Values.environment.steamcmd }} {{ default "5000" .Values.environment.steamcmd.gid | quote }} {{ else }} "5000" {{ end }}
             - name: STEAMCMD_SERVER_PORT
               value: "{{ .Values.network.ports.server }}"
+            - name: STEAMCMD_SERVER_GAME
+              value: "{{ include "steamcmd.game" . | trim }}"
+            - name: STEAMCMD_SERVER_MAP
+              value: "{{ default (include "steamcmd.map" .) .Values.environment.map }}"
+            - name: STEAMCMD_SERVER_SESSION_NAME
+              value: "{{ .Values.deployment.game }}"
+            - name: STEAMCMD_SERVER_APPID
+              value: "{{- include "steamcmd.appid" . | trim }}"
+            - name: STEAMCMD_SERVER_APP_CONFIG
+              value: "{{- include "steamcmd.app-config" . | trim }}"
+            - name: STEAMCMD_SERVER_MAXPLAYERS
+              value: "{{- include "steamcmd.maxplayers" . }} {{ default "32" .Values.environment.maxplayers }}"
+            - name: STEAMCMD_SERVER_TICKRATE
+              value: "{{ default "66" .Values.environment.tickrate }}"
             {{ if (default false .Values.network.ports.ssh.enabled) }}
             # SSH authorized keys
             - name: STEAMCMD_SSH_SERVER_ENABLE

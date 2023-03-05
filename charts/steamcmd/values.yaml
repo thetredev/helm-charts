@@ -53,6 +53,15 @@ storage: "5Gi"
 environment:
   timezone: "Etc/UTC"
 
+  # Specify the starting map
+  # map: de_dust2
+
+  # Specify the amount of max players
+  # maxplayers: 32
+
+  # Specify the server tickrate
+  # tickrate: 66
+
   # Specify user UID/GID if you have have to
   #  default: 5000 for both
   # steamcmd:
