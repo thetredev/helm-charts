@@ -11,19 +11,19 @@ spec:
       protocol: UDP
       port: {{ default 27015 .Values.network.ports.server }}
       targetPort: {{ default 27015 .Values.network.ports.server }}
-    {{- if (default false .Values.network.ports.rcon.enabled) }}
+    {{ if (default false .Values.network.ports.rcon.enabled) }}
     # RCON port
     - name: rcon
       protocol: TCP
       port: {{ default 27015 .Values.network.ports.server }}
       targetPort: {{ default 27015 .Values.network.ports.server }}
-    {{- end }}
-    {{- if (default false .Values.network.ports.ssh.enabled) }}
+    {{ end }}
+    {{ if (default false .Values.network.ports.ssh.enabled) }}
     # SSH port
     - name: ssh
       protocol: TCP
       port: {{ default 22 .Values.network.ports.ssh.port }}
       targetPort: 22
-    {{- end }}
+    {{ end }}
   selector:
     com.github.thetredev.steamcmd.service: "{{ .Release.Namespace }}-{{ .Values.deployment.containerName }}"

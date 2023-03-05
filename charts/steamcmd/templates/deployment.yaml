@@ -20,31 +20,31 @@ spec:
           image: "ghcr.io/thetredev/steamcmd:{{ .Values.deployment.game }}-{{ .Chart.AppVersion }}"
           imagePullPolicy: "{{ default "IfNotPresent" .Values.deployment.pullPolicy }}"
           resources:
-          {{- if .Values.resources }}
+          {{ if .Values.resources }}
             requests:
-              memory: {{ if .Values.resources.requests -}} {{ .default "512Mi" .Values.resources.requests.memory | quote }} {{- else -}} "512Mi" {{- end }}
-              cpu: {{ if .Values.resources.requests -}} {{ .default "200m" .Values.resources.requests.cpu | quote }} {{- else -}} "200m" {{- end }}
+              memory: {{ if .Values.resources.requests }} {{ .default "512Mi" .Values.resources.requests.memory | quote }} {{ else }} "512Mi" {{ end }}
+              cpu: {{ if .Values.resources.requests }} {{ .default "200m" .Values.resources.requests.cpu | quote }} {{ else }} "200m" {{ end }}
             limits:
-              memory: {{ if .Values.resources.limits -}} {{ default "2048Mi" .Values.resources.limits.memory | quote }} {{- else -}} "2048Mi" {{- end }}
-              cpu: {{ if .Values.resources.limits -}} {{ default "500m" .Values.resources.limits.cpu | quote }} {{- else -}} "500m" {{- end }}
-          {{- else }}
+              memory: {{ if .Values.resources.limits }} {{ default "2048Mi" .Values.resources.limits.memory | quote }} {{- else -}} "2048Mi" {{ end }}
+              cpu: {{ if .Values.resources.limits }} {{ default "500m" .Values.resources.limits.cpu | quote }} {{ else }} "500m" {{ end }}
+          {{ else }}
             requests:
               memory: 512Mi
               cpu: 200m
             limits:
               memory: 2048Mi
               cpu: 500m
-          {{- end }}
+          {{ end }}
           env:
             - name: TIME_ZONE
               value: "{{ default "Etc/UTC" .Values.environment.timezone }}"
             - name: STEAMCMD_UID
-              value: {{ if .Values.environment.steamcmd -}} {{ default "5000" .Values.environment.steamcmd.uid | quote }} {{- else -}} "5000" {{- end }}
+              value: {{ if .Values.environment.steamcmd }} {{ default "5000" .Values.environment.steamcmd.uid | quote }} {{ else }} "5000" {{ end }}
             - name: STEAMCMD_GID
-              value: {{ if .Values.environment.steamcmd -}} {{ default "5000" .Values.environment.steamcmd.gid | quote }} {{- else -}} "5000" {{- end }}
+              value: {{ if .Values.environment.steamcmd }} {{ default "5000" .Values.environment.steamcmd.gid | quote }} {{ else }} "5000" {{ end }}
             - name: STEAMCMD_SERVER_PORT
               value: "{{ .Values.network.ports.server }}"
-            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            {{ if (default false .Values.network.ports.ssh.enabled) }}
             # SSH authorized keys
             - name: STEAMCMD_SSH_SERVER_ENABLE
               value: "1"
@@ -53,33 +53,33 @@ spec:
                 secretKeyRef:
                   name: "{{ .Values.network.ports.ssh.secretName }}"
                   key: authorized_keys
-            {{- end }}
+            {{ end }}
           ports:
             # game server port
             - name: server
-              containerPort: {{ if .Values.network.ports -}} {{ default 27015 .Values.network.ports.server }} {{- else -}} 27015 {{- end }}
+              containerPort: {{ if .Values.network.ports }} {{ default 27015 .Values.network.ports.server }} {{ else }} "27015" {{ end }}
               protocol: UDP
-            {{- if (default false .Values.network.ports.rcon.enabled) }}
+            {{ if (default false .Values.network.ports.rcon.enabled) }}
             # RCON port
             - name: rcon
               containerPort: {{ default 27015 .Values.network.ports.server }}
               protocol: TCP
-            {{- end }}
-            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            {{ end }}
+            {{ if (default false .Values.network.ports.ssh.enabled) }}
             # SSH port
             - name: ssh
               containerPort: 22
               protocol: TCP
-            {{- end }}
+            {{ end }}
           volumeMounts:
             # game server volume
             - name: server
               mountPath: /var/lib/steamcmd
-            {{- if (default false .Values.network.ports.ssh.enabled) }}
+            {{ if (default false .Values.network.ports.ssh.enabled) }}
             # SSH host keys volume
             - name: ssh
               mountPath: /opt/ssh
-            {{- end }}
+            {{ end }}
           securityContext:
             allowPrivilegeEscalation: false
       restartPolicy: Always
@@ -88,9 +88,9 @@ spec:
         - name: server
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-server
-        {{- if (default false .Values.network.ports.ssh.enabled) }}
+        {{ if (default false .Values.network.ports.ssh.enabled) }}
         # SSH host keys volume
         - name: ssh
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-ssh
-        {{- end }}
+        {{ end }}

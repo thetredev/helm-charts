@@ -1,4 +1,4 @@
-{{- if (default false .Values.network.ports.ssh.enabled) }}
+{{ if (default false .Values.network.ports.ssh.enabled) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -10,4 +10,4 @@ spec:
   resources:
     requests:
       storage: 256Ki
-{{- end }}
+{{ end }}
