@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 0.0.5
-appVersion: "20230223"
+version: 0.0.6
+appVersion: "20230410"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -9,9 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: added
-      description: Default values for environment.map, environment.maxplayers, and environment.tickrate
-    - kind: added
-      description: Support for app version >= 20230223
     - kind: changed
-      description: Replaced CHANGELOG.md with Artifact Hub changelog
+      description: Now relying on official Steam Runtime 3 (Sniper) base images
