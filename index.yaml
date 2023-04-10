@@ -3,6 +3,23 @@ entries:
   steamcmd:
   - annotations:
       artifacthub.io/changes: |
+        - kind: changed
+          description: Now relying on official Steam Runtime 3 (Sniper) base images
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230410"
+    created: "2023-04-10T15:32:05.177076297Z"
+    description: Sane SteamCMD Docker images
+    digest: 8f786b97ba7de9f8b8840f527b8aeb705e8234b4b25f06a8e475d90ddebf8c8a
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.6/steamcmd-0.0.6.tgz
+    version: 0.0.6
+  - annotations:
+      artifacthub.io/changes: |
         - kind: added
           description: Default values for environment.map, environment.maxplayers, and environment.tickrate
         - kind: added
@@ -63,4 +80,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-03-05T16:07:29.844094245Z"
+generated: "2023-04-10T15:32:05.177104598Z"
