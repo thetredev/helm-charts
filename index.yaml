@@ -4,6 +4,23 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: Update Steam Runtime image (Sniper) to version 0.20230424.48416
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230507"
+    created: "2023-05-07T18:54:42.646842356Z"
+    description: Sane SteamCMD Docker images
+    digest: 0f66de7e7c786bc28211745a7c2516491e9979a1f876d3af8e5150dd92913752
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.7/steamcmd-0.0.7.tgz
+    version: 0.0.7
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: Now relying on official Steam Runtime 3 (Sniper) base images
       artifacthub.io/license: MIT
       artifacthub.io/links: |
@@ -80,4 +97,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-04-10T15:32:05.177104598Z"
+generated: "2023-05-07T18:54:42.646888156Z"
