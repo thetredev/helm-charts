@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 0.0.7
-appVersion: "20230507"
+version: 0.0.8
+appVersion: "20230530"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -10,4 +10,4 @@ annotations:
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
     - kind: changed
-      description: Update Steam Runtime image (Sniper) to version 0.20230424.48416
+      description: Update Steam Runtime image (Sniper) to version 0.20230509.49493
