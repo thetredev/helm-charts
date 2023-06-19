@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
 version: 0.0.9
-appVersion: "20230607"
+appVersion: "20230611"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -9,5 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: changed
-      description: Update Steam Runtime image (Sniper) to version 0.20230605.51441
+    - kind: fixed
+      description: Fix SSH server by adding SSHD rundir
