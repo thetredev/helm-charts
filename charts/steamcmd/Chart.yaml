@@ -1,6 +1,6 @@
 apiVersion: v2
 name: steamcmd
-version: 0.0.9
+version: 1.0.0
 appVersion: "20230611"
 description: Sane SteamCMD Docker images
 annotations:
