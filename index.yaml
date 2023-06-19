@@ -3,6 +3,23 @@ entries:
   steamcmd:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: Fix SSH server by adding SSHD rundir
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230611"
+    created: "2023-06-19T08:02:27.246157043Z"
+    description: Sane SteamCMD Docker images
+    digest: 69fda9aed64327520924f33a739abea4b233fd72cae24b948b4e0c62066f4ba9
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.0/steamcmd-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/changes: |
         - kind: changed
           description: Update Steam Runtime image (Sniper) to version 0.20230605.51441
       artifacthub.io/license: MIT
@@ -131,4 +148,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-07T20:41:21.683763384Z"
+generated: "2023-06-19T08:02:27.246213949Z"
