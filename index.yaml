@@ -3,6 +3,23 @@ entries:
   steamcmd:
   - annotations:
       artifacthub.io/changes: |
+        - kind: changed
+          description: Update base image to version 0.20230712.54652 (beware of runtime bugs, see GitHub release)
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230714"
+    created: "2023-07-24T21:36:25.001766563Z"
+    description: Sane SteamCMD Docker images
+    digest: 7f2dce31208b629cdcfe4783d1a8aaf411fb1ff80f4bbce68fc7451b403c0af4
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.1/steamcmd-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |
         - kind: fixed
           description: Fix SSH server by adding SSHD rundir
       artifacthub.io/license: MIT
@@ -148,4 +165,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-19T08:02:27.246213949Z"
+generated: "2023-07-24T21:36:25.001850364Z"
