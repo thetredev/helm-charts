@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.0
-appVersion: "20230611"
+version: 1.0.1
+appVersion: "20230714"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -9,5 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: fixed
-      description: Fix SSH server by adding SSHD rundir
+    - kind: changed
+      description: Update base image to version 0.20230712.54652 (beware of runtime bugs, see GitHub release)
