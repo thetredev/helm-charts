@@ -1,5 +1,5 @@
 {{- define "steamcmd.image" -}}
-{{ $games := dict "cs" "hlds" "czero" "hlds" "dmc" "hlds" "dod" "hlds" "hlmp" "hlds" "op4" "hlds" "tfc" "hlds" "bms" "srcds" "csgo" "srcds" "css" "srcds" "dods" "srcds" "gm" "srcds" "hl2mp" "srcds" "l4d" "srcds" "l4d2" "srcds" }}
+{{ $games := dict "cs" "hlds" "czero" "hlds" "dmc" "hlds" "dod" "hlds" "hlmp" "hlds" "op4" "hlds" "tfc" "hlds" "bms" "csgo" "csgo" "csgo" "css" "srcds" "dods" "srcds" "gm" "srcds" "hl2mp" "srcds" "l4d" "srcds" "l4d2" "srcds" }}
 {{- get $games .Values.deployment.game -}}
 {{- end -}}
 

@@ -1,6 +1,6 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.2
+version: 1.0.3
 appVersion: "20230906"
 description: Sane SteamCMD Docker images
 annotations:
@@ -10,4 +10,4 @@ annotations:
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
     - kind: fixed
-      description: Fixed runtime errors for game servers older than CS:GO
+      description: Fixed steamcmd.image map to account for new csgo image
