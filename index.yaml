@@ -4,6 +4,23 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: The image tag is actually available now...
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230907"
+    created: "2023-09-06T22:57:08.922322323Z"
+    description: Sane SteamCMD Docker images
+    digest: 1b93b77196bd38b335bd70c4d541a6f8f6cb9b7fc4b350ff610500a98c8f3034
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.4/steamcmd-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: Fixed steamcmd.image map to account for new csgo image
       artifacthub.io/license: MIT
       artifacthub.io/links: |
@@ -199,4 +216,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-06T22:21:36.190806019Z"
+generated: "2023-09-06T22:57:08.922423424Z"
