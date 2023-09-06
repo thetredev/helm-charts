@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.1
-appVersion: "20230714"
+version: 1.0.2
+appVersion: "20230906"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -9,5 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: changed
-      description: Update base image to version 0.20230712.54652 (beware of runtime bugs, see GitHub release)
+    - kind: fixed
+      description: Fixed runtime errors for game servers older than CS:GO
