@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.3
-appVersion: "20230906"
+version: 1.0.4
+appVersion: "20230907"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -10,4 +10,4 @@ annotations:
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
     - kind: fixed
-      description: Fixed steamcmd.image map to account for new csgo image
+      description: The image tag is actually available now...
