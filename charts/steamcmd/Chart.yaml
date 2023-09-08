@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.4
-appVersion: "20230907"
+version: 1.0.5
+appVersion: "20230908"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -10,4 +10,4 @@ annotations:
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
     - kind: fixed
-      description: The image tag is actually available now...
+      description: Fixed 2 minor issues and enable tickrate by issuing console commands rather than clunky .cfg files
