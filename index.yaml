@@ -3,6 +3,23 @@ entries:
   steamcmd:
   - annotations:
       artifacthub.io/changes: |
+        - kind: changed
+          description: Redesigned bash prompt
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230909"
+    created: "2023-09-08T22:53:37.81752901Z"
+    description: Sane SteamCMD Docker images
+    digest: c80039a25e5a9f6d0d31558b04a47c544173e69a7afb50730f7263ea7bb883e5
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.6/steamcmd-1.0.6.tgz
+    version: 1.0.6
+  - annotations:
+      artifacthub.io/changes: |
         - kind: fixed
           description: Fixed 2 minor issues and enable tickrate by issuing console commands rather than clunky .cfg files
       artifacthub.io/license: MIT
@@ -233,4 +250,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-08T21:52:06.538260396Z"
+generated: "2023-09-08T22:53:37.817728612Z"
