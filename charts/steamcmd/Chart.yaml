@@ -1,7 +1,7 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.5
-appVersion: "20230908"
+version: 1.0.6
+appVersion: "20230909"
 description: Sane SteamCMD Docker images
 annotations:
   artifacthub.io/license: MIT
@@ -9,5 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: fixed
-      description: Fixed 2 minor issues and enable tickrate by issuing console commands rather than clunky .cfg files
+    - kind: changed
+      description: Redesigned bash prompt
