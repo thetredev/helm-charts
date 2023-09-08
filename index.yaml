@@ -4,6 +4,23 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: Fixed 2 minor issues and enable tickrate by issuing console commands rather than clunky .cfg files
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20230908"
+    created: "2023-09-08T21:52:06.538077388Z"
+    description: Sane SteamCMD Docker images
+    digest: 5f2638667c56ce9d12c797dfd324b0ec392cd148509eb38462a1e4a7e9a4b713
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.5/steamcmd-1.0.5.tgz
+    version: 1.0.5
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: The image tag is actually available now...
       artifacthub.io/license: MIT
       artifacthub.io/links: |
@@ -216,4 +233,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-06T22:57:08.922423424Z"
+generated: "2023-09-08T21:52:06.538260396Z"
