@@ -3,6 +3,23 @@ entries:
   steamcmd:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: Ensure Counter-Strike 2 compatibility
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/thetredev/helm-charts
+    apiVersion: v2
+    appVersion: "20231111"
+    created: "2023-11-11T21:41:13.37219749Z"
+    description: Sane SteamCMD Docker images
+    digest: 27a46b74652a9ccadddf627a63694d345729c4db9894dc01fb284baed45f1562
+    name: steamcmd
+    urls:
+    - https://github.com/thetredev/helm-charts/releases/download/steamcmd-1.0.7/steamcmd-1.0.7.tgz
+    version: 1.0.7
+  - annotations:
+      artifacthub.io/changes: |
         - kind: changed
           description: Redesigned bash prompt
       artifacthub.io/license: MIT
@@ -250,4 +267,4 @@ entries:
     urls:
     - https://github.com/thetredev/helm-charts/releases/download/steamcmd-0.0.1/steamcmd-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-08T22:53:37.817728612Z"
+generated: "2023-11-11T21:41:13.372502495Z"
