@@ -57,6 +57,9 @@ The SSH port (TCP) to expose if `network.ports.ssh.enabled` is set to `true`.
 ## network.ports.ssh.secretName
 The secret name to load the `authorized_keys` file from. See https://github.com/thetredev/steamcmd?tab=readme-ov-file#ssh-server
 
+## network.serviceAnnotations
+Annotations to attach to the service object. See https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
+
 ## storage
 Persistent storage size. See https://kubernetes.io/docs/concepts/storage/persistent-volumes/#capacity
 

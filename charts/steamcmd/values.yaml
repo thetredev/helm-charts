@@ -46,6 +46,8 @@ network:
       port: 22
       # SSH secret name to use, has to contain key "authorized_keys"
       # secretName: ssh-access
+  # serviceAnnotations:
+  #   my-key: "my-value"
 
 # Currently only local storage is supported for both server files and SSH host keys
 storage: "5Gi"

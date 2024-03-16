@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Release.Namespace }}-{{ .Values.deployment.containerName }}-service
+  {{ if (default false .Values.network.serviceAnnotations) }}
+  annotations:
+    {{ toYaml .Values.network.serviceAnnotations | indent 2 }}
+  {{ end }}
 spec:
   type: LoadBalancer
   loadBalancerIP: "{{ .Values.network.ip }}"

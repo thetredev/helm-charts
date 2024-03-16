@@ -1,6 +1,6 @@
 apiVersion: v2
 name: steamcmd
-version: 1.0.8
+version: 1.0.9
 appVersion: "20240309"
 description: Sane SteamCMD Docker images
 annotations:
@@ -9,5 +9,5 @@ annotations:
     - name: Source
       url: https://github.com/thetredev/helm-charts
   artifacthub.io/changes: |
-    - kind: changed
-      description: Update base images to latest ones from Valve
+    - kind: added
+      description: Add service annotations

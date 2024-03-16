@@ -17,6 +17,7 @@ The following table lists the configurable parameters of the helm chart and thei
 | `network.ports.ssh.enabled`       | Whether to enable the container SSH server                                                 | `false`         | yes |
 | `network.ports.ssh.port`          | Exposed SSH port to use if SSH is enabled                                                  | `22`            | no  |
 | `network.ports.ssh.secretName`    | The secret containing the key `authorized_keys` to use for SSH server access               | `nil`           | yes if SSH is enabled, and cannot be `nil` if SSH is enabled |
+| `network.serviceAnnotations`    | Annotations to attach to the service object.                | `nil`           | no |
 | `storage`                         | Persistent storage size (only local storage is supported at the moment)                    | `nil`           | yes, cannot be `nil` |
 | `resources.requests.memory`       | Memory request value for the container                                                     | `512Mi`         | no |
 | `resources.requests.cpu`          | CPU request value for the  container                                                       | `200m`          | no |
