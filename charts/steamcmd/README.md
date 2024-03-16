@@ -3,7 +3,6 @@
 This repository hosts [Sane SteamCMD Docker images](https://github.com/thetredev/steamcmd) Helm Charts for deploying on [Kubernetes](https://kubernetes.io).
 
 ## Configuration
-
 The following table lists the configurable parameters of the helm chart and their default values.
 
 | Parameter                         | Description                                                                                | Default         | Required |
@@ -26,3 +25,5 @@ The following table lists the configurable parameters of the helm chart and thei
 | `environment.timezone`            | Container time zone to use                                                                 | `Etc/UTC`       | no |
 | `environment.steamcmd.uid`        | SteamCMD user ID to use                                                                    | `5000`          | no, only set if you have to |
 | `environment.steamcmd.gid`        | SteamCMD group ID to use                                                                   | `5000`          | no, only set if you have to |
+
+See [`docs/values.yaml/README.md`](./docs/values.yaml/README.md) for more information.
