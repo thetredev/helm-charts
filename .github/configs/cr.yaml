@@ -1,0 +1,13 @@
+## Copied and modified from
+## https://github.com/argoproj/argo-helm/blob/main/.github/configs/cr.yaml
+
+## Reference: https://github.com/helm/chart-releaser
+index-path: "./index.yaml"
+
+# Disable PGP signing
+# (currently no key available)
+sign: false
+
+# Enable automatic generation of release notes using GitHubs release notes generator.
+# see: https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
+generate-release-notes: true
